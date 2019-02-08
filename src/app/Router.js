@@ -35,12 +35,12 @@ export class Router {
             // Для Андрея
             location.hash = `channel`;
         });
-        // Для Андрея, когда активируешь канал вставишь в метод new PubSubService().pub('onEnterChannel', channel)
+
         new PubSubService().sub('onEnterChannel', channel => {
             this.data.channel = channel;
             location.hash = `dialog`;
         });
-        // Для ВСЕХ, Вставить в свой код new PubSubService().pub('onError', error) и передать код нужной ошибки
+
         new PubSubService().sub('onError', error => {
             this.data.error = error;
             location.hash = `error`;
